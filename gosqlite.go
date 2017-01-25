@@ -179,6 +179,7 @@ elap=156.5602ms  vs.  elap=6.533467682s
 
 */
 
+// more systematic, but still N=1, results:
 /* OSX SSD driver:
 
 batchsize=1, with withouttxn: elap=623.491µs
@@ -196,4 +197,43 @@ batchsize=1000, with txn: elap=14.771254ms
 batchsize=10000, with withouttxn: elap=9.371305014s
 batchsize=10000, with txn: elap=139.108072ms
 
+*/
+
+/* EC2 /root disk:
+
+batchsize=1, with withouttxn: elap=3.419377ms
+batchsize=1, with txn: elap=3.687348ms
+
+batchsize=10, with withouttxn: elap=43.553932ms
+batchsize=10, with txn: elap=3.518662ms
+
+batchsize=100, with withouttxn: elap=687.498228ms
+batchsize=100, with txn: elap=4.57526ms
+
+batchsize=1000, with withouttxn: elap=4.78843759s
+batchsize=1000, with txn: elap=15.214382ms
+
+batchsize=10000, with withouttxn: elap=43.033184413s
+batchsize=10000, with txn: elap=118.168473ms
+*/
+
+/* EC2 cold /disk1:
+
+[jaten@biggie sqlite_bench]$ cd /disk1/jaten/
+[jaten@biggie jaten]$ ./sqlite_bench 
+
+batchsize=1, with withouttxn: elap=3.809474ms
+batchsize=1, with txn: elap=4.233699ms
+
+batchsize=10, with withouttxn: elap=51.159811ms
+batchsize=10, with txn: elap=3.792718ms
+
+batchsize=100, with withouttxn: elap=1.44685491s
+batchsize=100, with txn: elap=5.306245ms
+
+batchsize=1000, with withouttxn: elap=5.667364593s
+batchsize=1000, with txn: elap=15.995181ms
+
+batchsize=10000, with withouttxn: elap=47.717175266s
+batchsize=10000, with txn: elap=106.659827ms
 */
